@@ -11,7 +11,8 @@ export const sendFarmlist = async (driver: WebDriver) => {
 
   const farmLists = await driver.findElements(By.className('listEntry'));
 
-  for (let i = 3; i < farmLists.length; i++) {
+  // tslint:disable-next-line: prefer-for-of
+  for (let i = 0; i < farmLists.length; i++) {
     const farmLists = await driver.findElements(By.className('listEntry'));
     const farmList = farmLists[i];
     const checkbox = await farmList.findElement(By.className('markAll'));
