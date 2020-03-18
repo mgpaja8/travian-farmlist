@@ -4,6 +4,6 @@ export interface AccountConfig {
 }
 
 export const accountConfig: AccountConfig = {
-  username: 'trump',
-  password: 'paja123'
+  username: '',
+  password: ''
 };

@@ -9,20 +9,19 @@ export const sendFarmlist = async (driver: WebDriver) => {
   await navigate(driver, `build.php?tt=99&id=39`);
   await sleep(2, 2);
 
-  const farmLists = await driver.findElements(By.className('listEntry'));
+  const listCount = await driver.findElements(By.className('listEntry'));
 
-  // tslint:disable-next-line: prefer-for-of
-  for (let i = 0; i < farmLists.length; i++) {
+  for (let i = listCount.length - 1; i >= 0; i--) {
     const farmLists = await driver.findElements(By.className('listEntry'));
     const farmList = farmLists[i];
     const checkbox = await farmList.findElement(By.className('markAll'));
-    const buttons = await farmList.findElements(By.className('textButtonV1'));
-    const submitFarmlist = buttons[1];
+    const buttons = await farmList.findElements(By.tagName('button'));
+    const submitFarmlist = buttons[buttons.length - 1];
 
     await checkbox.click();
     await submitFarmlist.click();
 
-    await sleep(3, 4);
+    await sleep(3, 2);
   }
 
   console.log('Send farmlist complete');

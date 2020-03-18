@@ -24,7 +24,7 @@ const main = async () => {
       if (driver) await logout(driver);
     }
 
-    await sleep(4 * 60, 3 * 60);
+    await sleep(8 * 60, 4 * 60);
     counter++;
   }
 };
